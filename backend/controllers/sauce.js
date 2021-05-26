@@ -34,3 +34,12 @@ exports.deleteSauce = (req, res, next) => {
     .then(() => res.status(200).json({ message: 'Sauce supprimée.' }))
     .catch(error => res.status(400).json({ error }));
 };
+
+exports.likeSauce = (req, res, next) => {
+    Sauce.updateOne({ _id: req.params.id }, { likes: 1, usersLiked: req.body.userId, _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'Vous avez like.'}))
+    .catch(error => res.status(400).json({ error }));
+};
+
+// if likes = 1
+//     push dans l'array userLiked l'userId
