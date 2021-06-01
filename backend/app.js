@@ -9,7 +9,6 @@ const sauceRoute = require("./routes/sauce");
 
 const app = express();
 
-// app.use(helmet());
 
 mongoose.connect(`mongodb+srv://Vincent:${process.env.PASSWORD_DB}@peko.mtxp6.mongodb.net/${process.env.NAME_DB}?retryWrites=true&w=majority`,
     { useNewUrlParser: true,
@@ -26,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use(bodyParser.json());
+
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
