@@ -1,8 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-// const helmet = require('helmet');
-// const bodyParser = require('body-parser');
+
 
 const userRoute = require("./routes/user");
 const sauceRoute = require("./routes/sauce");
@@ -11,7 +11,7 @@ const app = express();
 
 // app.use(helmet());
 
-mongoose.connect("mongodb+srv://Vincent:mdp@peko.mtxp6.mongodb.net/peko?retryWrites=true&w=majority",
+mongoose.connect(`mongodb+srv://Vincent:${process.env.PASSWORD_DB}@peko.mtxp6.mongodb.net/${process.env.NAME_DB}?retryWrites=true&w=majority`,
     { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
