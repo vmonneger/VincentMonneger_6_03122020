@@ -52,7 +52,7 @@ exports.deleteSauce = (req, res, next) => {
 
 exports.likeSauce = (req, res, next) => {
     const likes = req.body.like;
-    userId = req.body.userId;
+    const userId = req.body.userId;
     Sauce.findOne({ _id: req.params.id })
     .then(sauce => {
         if (likes === 1) {
